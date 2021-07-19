@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chan.dao.ReaderDao">
+
+    <select id="getTotal" resultType="int">
+        select count(*) from reader
+    </select>
+
+    <delete id="deleteById" parameterType="int" >
+        delete from reader where id = #{id}
+    </delete>
+
+    <select id="getReaderById" resultType="reader">
+        select * from reader where id = #{id}
+    </select>
+
+    <select id="getAllReader" resultType="reader">
+        select * from reader
+    </select>
+
+    <insert id="add" parameterType="reader">
+        insert into reader (id,name, password) values (#{id},#{name},#{password})
+    </insert>
+</mapper>

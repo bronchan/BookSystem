@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chan.dao.ReaderBookDao">
+
+    <select id="getAllReaderBook" resultType="readerBook">
+        select * from reader_book
+    </select>
+
+    <select id="getReaderBookByIsbn" resultType="readerBook">
+        select * from reader_book where book_isbn = #{isbn}
+    </select>
+
+    <select id="getReaderBookById" resultType="readerBook">
+         select * from reader_book where reader_id = #{id}
+    </select>
+
+    <insert id="add" parameterType="readerBook">
+        insert into reader_book (reader_id, book_isbn) values (#{readerId},#{bookIsbn})
+    </insert>
+
+    <delete id="deleteReaderBookByIsbn" parameterType="int">
+        delete from reader_book where book_isbn = #{isbn}
+    </delete>
+</mapper>
